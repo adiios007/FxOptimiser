@@ -37,6 +37,6 @@ app.use(function(err, req, res, next) {
   console.log("error: "+err);
   res.render('error');  
 });
-app.listen(8080, () => console.log('Server running on port 3000!'));
+app.listen(port, () => console.log('Server running on port 3000!'));
 
 module.exports = app;
