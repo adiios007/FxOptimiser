@@ -1,0 +1,55 @@
+<!Doctype Html>  
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script type-"text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+</head>
+<body>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+      <h1 class="display-4">FX Optimiser</h1>
+      <p class="lead"> Your transaction is complete please find the order details below </p>
+      <p class ="lead"> <a href="/fx/home">Click here</a>for Sample order placement </p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center" style="color:Red">
+            <h1>Complete Order details</h1>
+    </div>
+    <table id="orderdetails" class="table table-striped table-bordered" style="width:100%">
+        <tbody>
+            <tr><td> <strong>Trans I.D</strong></td>
+                <td><%= data.purchase_units[0].payments.captures[0].id %></td>
+            </tr>
+            <tr>
+            <td> <strong>Amount Payed by Buyer</strong></td>
+                    <td><%= data.purchase_units[0].amount.value%> <strong> <%= data.purchase_units[0].amount.currency_code %> </strong></td>
+            </tr>
+            <tr><td> <strong>Gross amount recievable</strong></td>
+                <td><%= data.purchase_units[0].payments.captures[0].seller_receivable_breakdown.gross_amount.value %> <strong> <%= data.purchase_units[0].payments.captures[0].seller_receivable_breakdown.gross_amount.currency_code %> </strong></td>
+            </tr>
+            <tr><td> <strong>PayPal Fees</strong></td>
+                <td><%= data.purchase_units[0].payments.captures[0].seller_receivable_breakdown.paypal_fee.value %> <strong> <%= data.purchase_units[0].payments.captures[0].seller_receivable_breakdown.paypal_fee.currency_code %> </strong></td>
+            </tr>
+            <tr><td> <strong>Net recievable amount</strong></td>
+                <td><%= data.purchase_units[0].payments.captures[0].seller_receivable_breakdown.net_amount.value %> <strong> <%= data.purchase_units[0].payments.captures[0].seller_receivable_breakdown.net_amount.currency_code %> </strong></td>
+            </tr>
+            <tr><td> <strong>Total amount recieved after conversion </strong></td>
+                <td><%= data.purchase_units[0].payments.captures[0].seller_receivable_breakdown.receivable_amount.value %> <strong> <%= data.purchase_units[0].payments.captures[0].seller_receivable_breakdown.receivable_amount.currency_code %> </strong></td>
+            </tr>
+            <tr><td> <strong>Conversion Rate </strong></td>
+                <td>From <%= data.purchase_units[0].payments.captures[0].seller_receivable_breakdown.exchange_rate.source_currency %> to <%= data.purchase_units[0].payments.captures[0].seller_receivable_breakdown.exchange_rate.target_currency %> <strong> <%= data.purchase_units[0].payments.captures[0].seller_receivable_breakdown.exchange_rate.value %> </strong></td>
+            </tr>
+            <tr>
+            <td> <strong>Merchant/seller/reciever Details </strong></td>
+                    <td><%= data.purchase_units[0].payee.email_address %></td>
+            </tr>
+            <tr>
+                <td> <strong>Payer Details</strong></td>
+                        <td><%= data.payer.email_address %></td>
+            </tr>
+        </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

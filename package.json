@@ -1,0 +1,25 @@
+{
+  "name": "fxoptimiser",
+  "version": "1.0.0",
+  "description": "Simple tool to demo FX optimiser API's",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adithya Bhat",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "body-parser": "^1.19.2",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "http-errors": "^2.0.0",
+    "path": "^0.12.7",
+    "qs": "^6.10.3",
+    "querystring": "^0.2.1",
+    "start": "^5.1.0",
+    "url": "^0.11.0"
+  }
+}
