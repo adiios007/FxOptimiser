@@ -10,7 +10,7 @@ const orderRoutes = require('./routes/orderdetails');
 
 const app = express();
 
-const port = 3000;
+const port = process.env.port || 3000;
 
 app.use('/fx', homeRoutes);
 app.use('/currencyconvertor', xchangeRoutes);
