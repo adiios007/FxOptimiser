@@ -159,7 +159,7 @@
 <script>
 $(document).ready(function() {
   $.ajax({
-      url :'http://localhost:8080/fx/switchenv?mode=sandbox',
+      url :'http://localhost:3000/fx/switchenv?mode=sandbox',
       type :'GET',
       dataType : 'json',
       success : function(result){
@@ -182,7 +182,7 @@ $(document).ready(function() {
         $('#targetval').remove();
         }
         console.log("clicked");
-        let baseURL = "http://localhost:8080/fx/exchangecurrency?baseamount=10.00&basecur=USD&targetcur="+$("#targetcur").val()+"&mode=sandbox";
+        let baseURL = "http://localhost:3000/fx/exchangecurrency?baseamount=10.00&basecur=USD&targetcur="+$("#targetcur").val()+"&mode=sandbox";
         console.log(baseURL);
        $.ajax({
             url:baseURL,
@@ -218,7 +218,7 @@ $(document).ready(function() {
                 console.log('Capture result', orderdata, JSON.stringify(orderdata, null, 2));
 
                 //$("#orderdata").append(" <h2> Placed order details</h2> <table class='table table-bordered'><thead><tr><th>")
-                actions.redirect("http://localhost:8080/orderdetails/?token="+orderdata.id);
+                actions.redirect("http://localhost:3000/orderdetails/?token="+orderdata.id);
             }
             )}
             
