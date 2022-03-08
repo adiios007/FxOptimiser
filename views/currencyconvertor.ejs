@@ -234,7 +234,7 @@ $(document).ready(function() {
     }
     if(baseCur != target){
         console.log("clicked");
-        let baseURL = "http://localhost:8080/fx/exchangecurrency?baseamount="+baseamt+"&basecur="+$("#basecur").val()+"&targetcur="+$("#targetcur").val()+"&mode=prod";
+        let baseURL = "https://fxoptimiser.herokuapp.com/fx/exchangecurrency?baseamount="+baseamt+"&basecur="+$("#basecur").val()+"&targetcur="+$("#targetcur").val()+"&mode=prod";
         console.log(baseURL);
        $.ajax({
             url:baseURL,
