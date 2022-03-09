@@ -130,7 +130,7 @@ $(document).ready(function() {
             type:"GET",
             dataType :'json',
             success: function(result){
-            $("#result").append("<h2 id='targetval'>Presentment Price : <kbd id='tarval'>"+result.quoteval+"</kbd><strong>"+$("#targetcur").val()+"</strong><p id='fxid' hidden>"+result.id+"</p></h2>");
+            $("#result").append("<h2 id='targetval'>Presentment Price : <kbd id='tarval'>"+result.quoteval+"</kbd><strong>"+$("#targetcur").val()+"</strong><p id='fxid' hidden>"+result.id+"</p><p id='xchangerate' hidden>"+result.exchange_rate+"</p></h2>");
             }
         });
         window.paypalLoadScript({ "client-id": "AdtQFOeXF-CnTJKGOuTNZ_WNJSOA1qL2TKoyuTkouG2M2qmec3zlckAUDcG-rdIEL4Wf6qhQ_x_4QiSY" ,
@@ -168,9 +168,11 @@ $(document).ready(function() {
                 return actions.order.capture().then(function(orderdata) {
                 // your custom code here for handling success
                 console.log('Capture result', orderdata, JSON.stringify(orderdata, null, 2));
-
+                var xrate = $("#xchangerate").text();
+                var convrate = (1/xrate);
                 //$("#orderdata").append(" <h2> Placed order details</h2> <table class='table table-bordered'><thead><tr><th>")
-                actions.redirect("https://fxoptimiser.herokuapp.com/orderdetails/?token="+orderdata.id);
+                  console.log("conversion rate :"+convrate);
+                actions.redirect("https://fxoptimiser.herokuapp.com/orderdetails/?token="+orderdata.id+"&convrate="+convrate);
             }
             )}
             

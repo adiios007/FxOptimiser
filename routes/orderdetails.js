@@ -30,7 +30,8 @@ router.get('', async function(req, res, next) {
             console.log("response : "+responseobj.status);
             console.log("response object :"+typeof(responseobj.data));
             let orderdetails = responseobj.data;
-            res.render("orderdetails",{data:orderdetails})
+            let rate = req.query.convrate
+            res.render("orderdetails",{data:orderdetails,conversion_rate:rate})
 
         }
         catch(error){
