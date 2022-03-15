@@ -54,7 +54,7 @@ router.get('/exchangeCurrency?' , function(req, res , next){
         if(response.status == 200){
         var value = response.data.exchange_rate_quotes[0].quote_amount.value;
         var fx_id = response.data.exchange_rate_quotes[0].fx_id;
-        var xchangerate = response.data.exchange_rate_quotes[0].exchange_rate;
+        var xchangerate = response.data.exchange_rate_quotes[0].exchange_rate.toFixed(4);
         res.json({quoteval : value,
             id : fx_id,
             exchange_rate :xchangerate
